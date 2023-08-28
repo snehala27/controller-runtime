@@ -80,7 +80,7 @@ func (wh *Webhook) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	convertReview.Response.UID = convertReview.Request.UID
 	convertReview.Request = nil
-
+        log.Info("SPECTRO:::::", "convertReview", convertReview)
 	err = json.NewEncoder(w).Encode(convertReview)
 	if err != nil {
 		log.Error(err, "failed to write response")
